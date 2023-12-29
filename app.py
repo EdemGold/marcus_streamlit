@@ -1,13 +1,13 @@
 import streamlit as st
-import google.generativeai as genai
+import google.generativeai
 import textwrap
 
 # Configure Google's generative AI
-genai.configure(api_key='AIzaSyBvQsBVbiJEkv8mwk1-p9FzTpjm6h7IA7c')  # Replace with your actual API key
+google.generativeai.configure(api_key='AIzaSyBvQsBVbiJEkv8mwk1-p9FzTpjm6h7IA7c')  # Replace with your actual API key
 
 class GeminiChat:
     def __init__(self):
-        self.model = genai.GenerativeModel('gemini-pro')
+        self.model = google.generativeai.GenerativeModel('gemini-pro')
         self.chat = self.model.start_chat(history=[])
 
     def get_response(self, user_message):
